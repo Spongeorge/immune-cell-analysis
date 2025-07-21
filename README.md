@@ -1,9 +1,8 @@
 # ⚙️ Setup
 
-Install requirements (not necessary in Codespaces):
+Install requirements:
 ```shell
-git clone https://github.com/Spongeorge/immune-cell-analysis
-pip install -r immune-cell-analysis/requirements.txt
+pip install -r requirements.txt
 ```
 
 Initialize SQLite DB:
