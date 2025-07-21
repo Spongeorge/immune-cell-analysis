@@ -56,9 +56,9 @@ def create_db(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Populates the SQLite database from a csv file.')
-    parser.add_argument('--csv-path', type=str, default='../data/cell-count.csv')
-    parser.add_argument('--schema-path', type=str, default='../database/init_db.sql')
-    parser.add_argument('--db-path', type=str, default='../database/trial_data.db')
+    parser.add_argument('--csv-path', type=str, default='data/cell-count.csv')
+    parser.add_argument('--schema-path', type=str, default='database/init_db.sql')
+    parser.add_argument('--db-path', type=str, default='database/trial_data.db')
     parser.add_argument('--drop', type=bool, default=True)
 
     create_db(parser.parse_args())

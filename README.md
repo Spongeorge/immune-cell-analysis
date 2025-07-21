@@ -1,19 +1,19 @@
 # ⚙️ Setup
 
-Install requirements:
+Install requirements (not necessary in Codespaces):
 ```shell
-git clone [...]
+git clone https://github.com/Spongeorge/immune-cell-analysis
 pip install -r immune-cell-analysis/requirements.txt
 ```
 
 Initialize SQLite DB:
 ```shell
-python immune-cell-analysis/database/create_db.py
+python database/create_db.py
 ```
 
 To run the dashboard locally:
 ```shell
-python immune-cell-analysis/dashboard/app.py
+python -m dashboard.app
 ```
 
 # 🗂️ DB Schema

@@ -7,7 +7,7 @@ from scipy.stats import mannwhitneyu
 from utils.significance import get_significance_code
 import dash_bootstrap_components as dbc
 
-db_path = '../database/trial_data.db'
+db_path = 'database/trial_data.db'
 conn = sqlite3.connect(db_path)
 
 
