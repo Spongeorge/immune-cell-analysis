@@ -129,7 +129,6 @@ app.layout = dbc.Container([
         page_size=10
     ),
     html.Button("Download CSV", id="btn-download-frequency"),
-    dcc.Download(id="download-dataframe-csv"),
     html.Hr(),
 
     html.H2("Statistical Analysis"),
@@ -183,11 +182,8 @@ app.layout = dbc.Container([
         columns=[{"name": i, "id": i} for i in baseline_df.columns],
         page_size=10
     ),
-    dcc.Store(id="stored-baseline-df", data=baseline_df.to_dict("records")),
-    dcc.Store(id="stored-filename", data="baseline_data.csv"),
-
     html.Button("Download CSV", id="btn-download-baseline"),
-    dcc.Download(id="download-dataframe-csv"),
+
 
     html.Div([
         html.Div([

@@ -1,6 +1,6 @@
 # ⚙️ Setup
 
-Install requirements:
+Install requirements (Codespaces should do this for you):
 ```shell
 pip install -r requirements.txt
 ```
