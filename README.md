@@ -26,7 +26,7 @@ Although `conditions` and `treatments` could have been represented as a simple s
 
 The `cell_counts` table is also decoupled from `samples` to separate sample metadata from quantitative measurements.
 
-# Code Structure
+# 🏗️ Code Structure
 
 This is a [Dash](https://dash.plotly.com/) web app for analyzing clinical trial cell count data, built with a pretty standard modular architecture, and written in Python. 
 
@@ -52,6 +52,6 @@ The code is organized into a few modules:
 
 
 
-# Dashboard Preview Link
+# 🖥️ Dashboard Preview Link
 
 [https://immune-cell-analysis-765e56c036a2.herokuapp.com/](https://immune-cell-analysis-765e56c036a2.herokuapp.com/)
