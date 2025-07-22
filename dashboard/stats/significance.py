@@ -4,11 +4,11 @@ import numpy as np
 
 def get_significance_code(p):
     if p <= 0.001:
-        return '(\*\*\*)'
+        return r'(\*\*\*)'
     elif p <= 0.01:
-        return '(\*\*)'
+        return r'(\*\*)'
     elif p <= 0.05:
-        return '(\*)'
+        return r'(\*)'
     elif p <= 0.1:
         return '(.)'
     else:
