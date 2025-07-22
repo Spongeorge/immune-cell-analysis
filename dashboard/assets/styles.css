@@ -1,0 +1,4 @@
+/* This is to get rid of bottom margins on my statistical tests */
+.stat-markdown p {
+  margin-bottom: 0;
+}
