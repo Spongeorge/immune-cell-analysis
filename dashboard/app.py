@@ -3,9 +3,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
 from dash import Dash, dcc, html, dash_table, Input, Output, State, no_update, ctx
-from scipy.stats import mannwhitneyu
+from scipy.stats import mannwhitneyu, norm
 from utils.significance import get_significance_code
 import dash_bootstrap_components as dbc
+import numpy as np
 
 db_path = 'database/trial_data.db'
 conn = sqlite3.connect(db_path)
@@ -81,7 +82,14 @@ for pop in responder_summary['population'].unique():
 
     if len(responders) > 0 and len(non_responders) > 0:
         u_stat, p_val = mannwhitneyu(responders, non_responders, alternative='two-sided')
-        stat_text = f"""Mann-Whitney U Test\nU={int(u_stat)}, p={p_val:.3e} {get_significance_code(p_val)}\nn1={len(responders)}, n2={len(non_responders)}"""
+        n1 = len(responders)
+        n2 = len(non_responders)
+        N = n1 + n2
+        mean_U = n1 * n2 / 2
+        std_U = np.sqrt(n1 * n2 * (N + 1) / 12)
+        z = (u_stat - mean_U) / std_U
+        r = z / np.sqrt(N)
+        stat_text = f"Mann-Whitney U Test\nU={int(u_stat)}, p={p_val:.3e} {get_significance_code(p_val)}\nn1={n1}, n2={n2}\nEffect Size (r)={r}"
     else:
         stat_text = "Insufficient data"
 
@@ -187,7 +195,7 @@ app.layout = dbc.Container([
     dcc.Store(id="stored-filename", data="baseline_data.csv"),
 
     html.Button("Download CSV", id="btn-download-baseline"),
-    
+
 
     html.Div([
         html.Div([
@@ -223,7 +231,7 @@ app.layout = dbc.Container([
     Input("btn-download-baseline", "n_clicks"),
     prevent_initial_call=True
 )
-def download_csv(n1, n2):
+def download_csv():
     triggered_id = ctx.triggered_id
 
     if triggered_id == "btn-download-frequency":
