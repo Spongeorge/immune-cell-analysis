@@ -30,7 +30,7 @@ The `cell_counts` table is also decoupled from `samples` to separate sample meta
 
 This is a [Dash](https://dash.plotly.com/) web app for analyzing clinical trial cell count data, built with a pretty standard modular architecture, and written in Python. 
 
-The code is organized into a few layers:
+The code is organized into a few modules:
 
 #### Database Layer (`database/`)
 - Code to set up and load an SQLite database from `data/cell-count.csv`
